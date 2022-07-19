@@ -8,6 +8,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Page.Login />} />
+        <Route path="/" element={<Page.Registration />} />
       </Routes>
     </div>
   );
