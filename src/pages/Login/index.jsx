@@ -3,18 +3,24 @@ import * as Comp from '../../components';
 import Context from '../../context/Context';
 
 export default function Login() {
-  const { renderForgotPassword } = useContext(Context);
+  const { renderForgotPassword, renderCreate } = useContext(Context);
   return (
     <div>
       <Comp.Header />
-      {renderForgotPassword
-        ? (<Comp.ForgotPassword />)
+      {renderCreate ? (
+        <Comp.CreateAccount />
+      )
         : (
           <div>
-            <Comp.FormLogin />
+            {renderForgotPassword
+              ? (<Comp.ForgotPassword />)
+              : (
+                <div>
+                  <Comp.FormLogin />
+                </div>
+              )}
           </div>
         )}
-
     </div>
   );
 }

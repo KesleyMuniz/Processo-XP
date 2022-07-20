@@ -4,10 +4,14 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [renderForgotPassword, setRenderForgot] = useState(false);
+  const [renderCreate, setCreate] = useState(false);
+
   const values = useMemo(() => ({
     renderForgotPassword,
     setRenderForgot,
-  }), [renderForgotPassword]);
+    renderCreate,
+    setCreate,
+  }), [renderForgotPassword, renderCreate]);
   return (
     <Context.Provider value={values}>
       {children}

@@ -7,7 +7,12 @@ import Context from '../../context/Context';
 export default function FormLogin() {
   const navigate = useNavigate();
 
-  const { setRenderForgot, renderForgotPassword } = useContext(Context);
+  const {
+    setRenderForgot,
+    renderForgotPassword,
+    renderCreate,
+    setCreate,
+  } = useContext(Context);
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -85,7 +90,10 @@ export default function FormLogin() {
 
       </button>
       <footer>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => { setCreate(!renderCreate); }}
+        >
           Criar conta
         </button>
       </footer>
