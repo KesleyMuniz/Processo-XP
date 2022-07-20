@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validadeUser from '../../services/validadeUser';
+import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -11,16 +12,33 @@ export default function FormLogin() {
   const [nextPage, setNext] = useState(false);
 
   useEffect(() => {
+    function verifyUser() {
+      const user = getLocalStorage('login');
+      return user ? navigate('/Account') : null;
+    }
+    verifyUser();
+  });
+
+  useEffect(() => {
+    function salveLogin() {
+      if (remember) {
+        saveLocalStorage('login', { email, password });
+      }
+    }
+
     function LoginUser() {
       if (nextPage.length) {
+        salveLogin();
         navigate('/Account');
       }
     }
+
     LoginUser();
   }, [nextPage]);
 
   return (
-    <>
+    <form>
+
       <h1>Login</h1>
       <label htmlFor="emailLogin">
         Email:
@@ -64,6 +82,6 @@ export default function FormLogin() {
           Criar conta
         </button>
       </footer>
-    </>
+    </form>
   );
 }
