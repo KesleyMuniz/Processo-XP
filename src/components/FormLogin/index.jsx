@@ -66,7 +66,7 @@ export default function FormLogin() {
           Lembrar minha senha
         </label>
         <button type="button">
-          Esquece minha senha
+          Esqueci minha senha
         </button>
       </div>
       <button

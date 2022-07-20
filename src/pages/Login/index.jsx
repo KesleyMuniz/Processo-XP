@@ -6,6 +6,7 @@ export default function Login() {
     <>
       <Comp.Header />
       <Comp.FormLogin />
+      <Comp.ForgotPassword />
     </>
   );
 }
