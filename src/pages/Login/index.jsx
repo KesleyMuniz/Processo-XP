@@ -4,7 +4,6 @@ import Context from '../../context/Context';
 
 export default function Login() {
   const { renderForgotPassword } = useContext(Context);
-  console.log(renderForgotPassword);
   return (
     <div>
       <Comp.Header />
