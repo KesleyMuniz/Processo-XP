@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header';
+import * as Comp from '../../components';
 
 export default function Login() {
   return (
     <>
-      <Header />
-      <div>Login</div>
+      <Comp.Header />
+      <Comp.FormLogin />
     </>
   );
 }
