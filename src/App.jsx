@@ -11,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Page.Login />} />
         <Route path="/Registration" element={<Page.Registration />} />
+        <Route path="/Account" element={<Page.Account />} />
+        <Route path="/Stocks" element={<Page.Stocks />} />
       </Routes>
     </div>
   );
