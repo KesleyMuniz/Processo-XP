@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Context from './Context';
 
 function Provider({ children }) {
