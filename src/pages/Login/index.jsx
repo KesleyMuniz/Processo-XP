@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Comp from '../../components';
+import Context from '../../context/Context';
 
 export default function Login() {
+  const { renderForgotPassword } = useContext(Context);
+  console.log(renderForgotPassword);
   return (
-    <>
+    <div>
       <Comp.Header />
-      <Comp.FormLogin />
-      <Comp.ForgotPassword />
-    </>
+      {renderForgotPassword
+        ? (<Comp.ForgotPassword />)
+        : (
+          <div>
+            <Comp.FormLogin />
+          </div>
+        )}
+
+    </div>
   );
 }

@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validadeUser from '../../services/validadeUser';
 import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
+import Context from '../../context/Context';
 
 export default function FormLogin() {
   const navigate = useNavigate();
+
+  const { setRenderForgot, renderForgotPassword } = useContext(Context);
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -65,7 +68,10 @@ export default function FormLogin() {
           />
           Lembrar minha senha
         </label>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => { setRenderForgot(!renderForgotPassword); }}
+        >
           Esqueci minha senha
         </button>
       </div>
