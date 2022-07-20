@@ -30,7 +30,7 @@ export default function FormLogin() {
     }
 
     function LoginUser() {
-      if (nextPage.length) {
+      if (nextPage) {
         salveLogin();
         navigate('/Account');
       }
@@ -79,7 +79,7 @@ export default function FormLogin() {
       <button
         type="button"
         id="submitLogin"
-        onClick={() => { setNext(validadeUser(email, password)); }}
+        onClick={async () => { setNext(await validadeUser(email, password)); }}
       >
         Entrar
 
