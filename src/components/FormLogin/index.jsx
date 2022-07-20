@@ -65,6 +65,7 @@ export default function FormLogin() {
             id="rememberLogin"
             onClick={() => { setRemember(!remember); }}
             checked={remember}
+            readOnly
           />
           Lembrar minha senha
         </label>
