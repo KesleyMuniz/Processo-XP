@@ -1,6 +1,7 @@
 import emailjs from 'emailjs-com';
 import env from 'react-dotenv';
 
+const generateCoding = Math.floor(Math.random() * env.REACT_APP_NUMBER_VALUE);
 export const sendCode = ({ Subject, message, user }) => (
   emailjs.send(
     env.REACT_APP_SERVICE_ID,
@@ -8,7 +9,7 @@ export const sendCode = ({ Subject, message, user }) => (
     {
       Subject,
       message,
-      coding: Math.floor(Math.random() * env.REACT_APP_NUMBER_VALUE),
+      coding: generateCoding,
       user,
     },
     env.REACT_APP_USER_ID,
