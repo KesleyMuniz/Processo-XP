@@ -1,37 +1,21 @@
 import React, { useContext, useState } from 'react';
-import emailjs from 'emailjs-com';
-import env from 'react-dotenv';
 import Context from '../../context/Context';
+import { sendCode } from '../../services';
 
 export default function ForgotPassword() {
   const { setRenderForgot, renderForgotPassword } = useContext(Context);
 
   const [email, setEmail] = useState('');
-  const [code, setCode] = useState(null);
 
-  function getRandomCod() {
-    return Math.floor(Math.random() * env.REACT_APP_NUMBER_VALUE);
-  }
+  const template = {
+    Subject: 'Código de confirmação',
+    message: 'Seu Código de confirmação é:',
+    user: email,
+  };
 
   async function handleFormSubmit(e) {
     e.preventDefault();
-    await setCode(getRandomCod());
-
-    await emailjs.send(
-      env.REACT_APP_SERVICE_ID,
-      env.REACT_APP_TEMPLATE_ID,
-      {
-        Subject: 'Código de confirmação',
-        message: 'Seu Código de confirmação é:',
-        coding: code,
-        user: email,
-      },
-      env.REACT_APP_USER_ID,
-    ).then((result) => {
-      throw result.text;
-    }, (error) => {
-      throw new Error(error.text);
-    });
+    await sendCode(template);
     e.target.reset();
   }
   return (
