@@ -4,7 +4,7 @@ import validadeUser from '../../services/validadeUser';
 import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
 import Context from '../../context/Context';
 import saveUserContext from '../../services/saveUsers';
-import { saveSessionStorage } from '../../services/sessionStorage';
+import { saveSessionStorage } from '../../services';
 
 export default function FormLogin() {
   const navigate = useNavigate();
