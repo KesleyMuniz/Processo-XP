@@ -12,6 +12,8 @@ import saveUserContext from './saveUsers';
 
 import replaceNames from './replace';
 
+import { getSessionStorage, saveSessionStorage } from './sessionStorage';
+
 export {
   getLocalStorage,
   saveLocalStorage,
@@ -19,4 +21,6 @@ export {
   sendAccount,
   saveUserContext,
   replaceNames,
+  getSessionStorage,
+  saveSessionStorage,
 };

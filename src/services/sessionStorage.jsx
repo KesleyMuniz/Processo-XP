@@ -3,5 +3,5 @@ export const saveSessionStorage = (key, value) => (
 );
 
 export const getSessionStorage = (key) => (
-  JSON.parse(localStorage.sessionStorage(key))
+  JSON.parse(sessionStorage.getItem(key))
 );
