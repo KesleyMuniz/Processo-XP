@@ -36,10 +36,10 @@ export default function FormLogin() {
       }
     }
 
-    function LoginUser() {
+    async function LoginUser() {
       if (nextPage) {
         salveLogin();
-        setUserData(saveUserContext(email));
+        setUserData(await saveUserContext(email));
         navigate('/Stocks');
       }
     }
