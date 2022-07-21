@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import validadeUser from '../../services/validadeUser';
 import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
 import Context from '../../context/Context';
+import saveUserContext from '../../services/saveUsers';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function FormLogin() {
     renderForgotPassword,
     renderCreate,
     setCreate,
+    setUserData,
   } = useContext(Context);
 
   const [email, setEmail] = useState(null);
@@ -37,7 +39,8 @@ export default function FormLogin() {
     function LoginUser() {
       if (nextPage) {
         salveLogin();
-        navigate('/Account');
+        setUserData(saveUserContext(email));
+        navigate('/Stocks');
       }
     }
 

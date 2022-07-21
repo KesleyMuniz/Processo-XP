@@ -4,10 +4,10 @@ import { getMockAPI } from '../Mocks/Users';
 const validade = async (value, key) => {
   const data = await getMockAPI();
   if (key === 'email') {
-    const result = data.some((el) => el.email === value);
+    const result = await data.some((el) => el.email === value);
     return result;
   }
-  const result = data.some((el) => el.password === value);
+  const result = await data.some((el) => el.password === value);
   return result;
 };
 
