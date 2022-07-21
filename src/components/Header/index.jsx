@@ -3,23 +3,26 @@ import React, { useEffect, useState } from 'react';
 import * as S from './Header.style';
 import Sidebar from '../Sidebar';
 import * as Icons from '../../assets/icons';
-import { replaceNames, getSessionStorage } from '../../services';
+import { replaceNames, getSessionStorage, getLocalStorage } from '../../services';
 import { getUserIDMockAPI } from '../../Mocks/Users';
 
 export default function Header({ Logged, userData }) {
   const [loading, setLoading] = useState(null);
   const [renderData, setRender] = useState(null);
 
+  const userSession = getSessionStorage('login');
+  const userLocal = getLocalStorage('login');
+
   const validadeRender = async () => {
     if (userData) {
-      const user = await getSessionStorage('login');
-      const UserData = await getUserIDMockAPI(user.id);
-      setLoading(UserData);
+      const { id } = userLocal || userSession;
+      const data = await getUserIDMockAPI(id);
+      setLoading(data);
     }
   };
   useEffect(() => {
-    if (loading) {
-      setRender(loading);
+    if (loading && !renderData) {
+      setRender([loading]);
     }
     if (!renderData) {
       validadeRender();
@@ -28,14 +31,25 @@ export default function Header({ Logged, userData }) {
   return (
     <S.Container>
       <>
-        {Logged && renderData ? <Sidebar /> : null }
+        {Logged && renderData ? (
+          <>
+            {renderData.map(({ name, AccountBalance, id }) => (
+              <S.ContainerSidebar key={id}>
+                <Sidebar
+                  name={replaceNames(name)}
+                  AccountBalance={AccountBalance}
+                />
+              </S.ContainerSidebar>
+            ))}
+          </>
+        ) : null }
         <S.ContainerDataUser>
-          <div>
+          <span>
             {Logged && renderData
               ? (
                 <>
-                  {[renderData].map(({ name, AccountBalance }) => (
-                    <>
+                  {renderData.map(({ name, AccountBalance, id }) => (
+                    <span key={id}>
                       <S.DivUser>
                         <img src={Icons.User} alt="Logo do usuário" />
                         {replaceNames(name)}
@@ -44,11 +58,11 @@ export default function Header({ Logged, userData }) {
                         <img src={Icons.Balance} alt="Logo do usuário" />
                         {`R$ ${AccountBalance}`}
                       </S.DivUser>
-                    </>
+                    </span>
                   ))}
                 </>
               ) : null}
-          </div>
+          </span>
         </S.ContainerDataUser>
         <S.DivName>
           XP

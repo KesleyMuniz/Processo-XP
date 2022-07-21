@@ -1,23 +1,21 @@
-import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import * as S from './sidebar.style';
 import * as Icons from '../../assets/icons';
-import Context from '../../context/Context';
-import { replaceNames } from '../../services';
 
-export default function Sidebar() {
-  const { userData } = useContext(Context);
+export default function Sidebar({ name, AccountBalance }) {
   return (
     <S.SpanSidebarContainer>
       <S.ULContainer>
         <S.LI>
           <S.DivUser>
-            {replaceNames(userData.name)}
+            {name}
             <img src={Icons.User} alt="Logo do usuário" />
           </S.DivUser>
         </S.LI>
         <S.LI>
           <S.DivUser>
-            {`${userData.AccountBalance} R$`}
+            {`${AccountBalance} R$`}
             <img src={Icons.Balance} alt="Logo do usuário" />
           </S.DivUser>
         </S.LI>
@@ -25,3 +23,8 @@ export default function Sidebar() {
     </S.SpanSidebarContainer>
   );
 }
+
+Sidebar.propTypes = {
+  AccountBalance: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};

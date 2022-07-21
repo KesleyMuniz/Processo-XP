@@ -38,7 +38,7 @@ export const DivLastName = styled.div`
 `;
 
 export const DivUser = styled.div`
-display: flex;
+  display: flex;
   align-items: flex-end;
   justify-content: space-around;
   img {
@@ -46,17 +46,24 @@ display: flex;
   }
 `;
 
-export const ContainerDataUser = styled.div`
+export const ContainerDataUser = styled.span`
   display: flex; 
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
   width: 100%;
   margin-left: 10%;
   font-size: 150%;
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
+  span {
+    display: flex; 
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
   @media(max-width: 800px) {
     display: none; 
 }
+`;
+
+export const ContainerSidebar = styled.div`
+  display: flex;
 `;
