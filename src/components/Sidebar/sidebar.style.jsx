@@ -9,7 +9,6 @@ export const SpanSidebarContainer = styled.div`
 `;
 
 export const DivUser = styled.div`
-
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -30,5 +29,5 @@ export const ULContainer = styled.ul`
 `;
 
 export const LI = styled.li`
-    display: flex;
+    
 `;

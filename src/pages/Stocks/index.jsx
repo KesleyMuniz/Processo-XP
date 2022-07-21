@@ -1,11 +1,13 @@
 import React from 'react';
 import * as Comp from '../../components';
+import { AvailableActions } from '../../components';
 
 export default function Stocks() {
   return (
     <>
       <Comp.Header Logged userData />
-      <h1>Pagina de ações</h1>
+      <br />
+      <AvailableActions />
     </>
   );
 }
