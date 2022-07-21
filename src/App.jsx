@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import * as Page from './pages';
 import GlobalStyle from './assets/css/styleGlobal';
