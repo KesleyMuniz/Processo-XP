@@ -14,6 +14,8 @@ import replaceNames from './replace';
 
 import { getSessionStorage, saveSessionStorage } from './sessionStorage';
 
+import { getAPI, postAPI } from './API';
+
 export {
   getLocalStorage,
   saveLocalStorage,
@@ -23,4 +25,6 @@ export {
   replaceNames,
   getSessionStorage,
   saveSessionStorage,
+  getAPI,
+  postAPI,
 };
