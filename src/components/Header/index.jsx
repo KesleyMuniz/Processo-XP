@@ -1,36 +1,42 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import * as S from './Header.style';
 import Sidebar from '../Sidebar';
 import * as Icons from '../../assets/icons';
+import Context from '../../context/Context';
+import { replaceNames } from '../../services';
 
 export default function Header({ Logged }) {
+  const { userData } = useContext(Context);
   return (
     <S.Container>
-      <S.SpanSidebarContainer>
-        <Sidebar />
-      </S.SpanSidebarContainer>
-      <S.ContainerDataUser>
-        {Logged
+      <>
+
+        {Logged && <Sidebar /> }
+        <S.ContainerDataUser>
+          {Logged
       && (
-        <>
-          <S.DivNameUser>
-            <img src={Icons.User} alt="Logo do usuário" />
-            Nome do usuário
-          </S.DivNameUser>
-          <S.DivBalanceUser>
-            <img src={Icons.Balance} alt="Logo do usuário" />
-            Saldo da conta
-          </S.DivBalanceUser>
-        </>
+      <>
+        <S.DivUser>
+          <img src={Icons.User} alt="Logo do usuário" />
+          {replaceNames(userData.name)}
+        </S.DivUser>
+        <S.DivUser>
+          <img src={Icons.Balance} alt="Logo do usuário" />
+          {`R$ ${userData.AccountBalance}`}
+        </S.DivUser>
+      </>
+
       )}
-      </S.ContainerDataUser>
-      <S.DivName>
-        XP
-      </S.DivName>
-      <S.DivLastName>
-        Investimentos
-      </S.DivLastName>
+        </S.ContainerDataUser>
+        <S.DivName>
+          XP
+        </S.DivName>
+        <S.DivLastName>
+          Investimentos
+        </S.DivLastName>
+
+      </>
     </S.Container>
   );
 }
