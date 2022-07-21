@@ -23,8 +23,6 @@ export const DivName = styled.div`
   font-weight: 900;
   margin-top: -10px;
   margin-right: 400px;
-  @media(max-width: 800px) {
-}
 `;
 
 export const DivLastName = styled.div`
@@ -39,29 +37,13 @@ export const DivLastName = styled.div`
 }
 `;
 
-export const DivNameUser = styled.div`
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  img {
-    width: 15%;
-  }
-
-  @media(max-width: 800px) {
-
-}
-`;
-
-export const DivBalanceUser = styled.div`
+export const DivUser = styled.div`
 display: flex;
   align-items: flex-end;
   justify-content: space-around;
   img {
     width: 15%;
   }
-  @media(max-width: 800px) {
-
-}
 `;
 
 export const ContainerDataUser = styled.div`
@@ -76,15 +58,5 @@ export const ContainerDataUser = styled.div`
   font-weight: 800;
   @media(max-width: 800px) {
     display: none; 
-}
-`;
-
-export const SpanSidebarContainer = styled.div`
-display: none; 
-width: 800px;
-@media(max-width: 800px) {
-    margin-right: 10%;
-    display: flex; 
-    justify-content: flex-end;
 }
 `;
