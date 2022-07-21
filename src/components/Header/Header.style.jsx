@@ -9,8 +9,17 @@ export const Container = styled.div`
   background-image: linear-gradient(to right, #45b8e6 , #d66a9f);
   border-radius: 10px 5px 12em / 0 0 100%;
   justify-content: flex-end;
+  .SidebarContainer{
+   display: none; 
+  }
   @media(max-width: 800px) {
     justify-content: flex-start;
+    .SidebarContainer{
+   display: flex; 
+   z-index: 999;
+   margin-left: 20px;
+   padding: 0;
+  }
 }
 `;
 
@@ -35,5 +44,19 @@ export const DivLastName = styled.div`
   font-size: 40px;
   @media(max-width: 800px) {
     padding-left: 200px;
+}
+`;
+
+export const DivNameUser = styled.div`
+
+  @media(max-width: 800px) {
+    display: none; 
+}
+`;
+
+export const DivBalanceUser = styled.div`
+
+  @media(max-width: 800px) {
+    display: none; 
 }
 `;

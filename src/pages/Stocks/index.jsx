@@ -1,7 +1,11 @@
 import React from 'react';
+import * as Comp from '../../components';
 
 export default function Stocks() {
   return (
-    <div>Pagina de ações</div>
+    <>
+      <Comp.Header Logged />
+      <h1>Pagina de ações</h1>
+    </>
   );
 }

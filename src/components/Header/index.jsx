@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import * as S from './Header.style';
+import Sidebar from '../Sidebar';
 
-export default function Header({ page }) {
+export default function Header({ Logged }) {
   return (
     <S.Container>
+      <span className="SidebarContainer">
+        <Sidebar />
+      </span>
       <div>
-        {page
+        {Logged
       && (
         <>
-          <div>Nome do usuário</div>
-          <div>Saldo da conta</div>
+          <S.DivNameUser>Nome do usuário</S.DivNameUser>
+          <S.DivBalanceUser>Saldo da conta</S.DivBalanceUser>
         </>
       )}
       </div>
@@ -25,9 +29,9 @@ export default function Header({ page }) {
 }
 
 Header.propTypes = {
-  page: PropTypes.bool,
+  Logged: PropTypes.bool,
 };
 
 Header.defaultProps = {
-  page: false,
+  Logged: false,
 };
