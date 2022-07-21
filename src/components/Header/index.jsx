@@ -2,22 +2,29 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import * as S from './Header.style';
 import Sidebar from '../Sidebar';
+import * as Icons from '../../assets/icons';
 
 export default function Header({ Logged }) {
   return (
     <S.Container>
-      <span className="SidebarContainer">
+      <S.SpanSidebarContainer>
         <Sidebar />
-      </span>
-      <div>
+      </S.SpanSidebarContainer>
+      <S.ContainerDataUser>
         {Logged
       && (
         <>
-          <S.DivNameUser>Nome do usuário</S.DivNameUser>
-          <S.DivBalanceUser>Saldo da conta</S.DivBalanceUser>
+          <S.DivNameUser>
+            <img src={Icons.User} alt="Logo do usuário" />
+            Nome do usuário
+          </S.DivNameUser>
+          <S.DivBalanceUser>
+            <img src={Icons.Balance} alt="Logo do usuário" />
+            Saldo da conta
+          </S.DivBalanceUser>
         </>
       )}
-      </div>
+      </S.ContainerDataUser>
       <S.DivName>
         XP
       </S.DivName>

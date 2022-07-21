@@ -24,7 +24,7 @@ export default function FormLogin() {
   useEffect(() => {
     function verifyUser() {
       const user = getLocalStorage('login');
-      return user ? navigate('/Account') : null;
+      return user ? navigate('/Stocks') : null;
     }
     verifyUser();
   });
@@ -87,7 +87,7 @@ export default function FormLogin() {
       <button
         type="button"
         id="submitLogin"
-        onClick={async () => { setNext(await validadeUser(email, password)); }}
+        onClick={async () => { setNext(validadeUser(email, password)); }}
       >
         Entrar
 
