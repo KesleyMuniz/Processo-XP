@@ -4,6 +4,7 @@ import validadeUser from '../../services/validadeUser';
 import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
 import Context from '../../context/Context';
 import saveUserContext from '../../services/saveUsers';
+import { saveSessionStorage } from '../../services/sessionStorage';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function FormLogin() {
     renderCreate,
     setCreate,
     setUserData,
+    userData,
   } = useContext(Context);
 
   const [email, setEmail] = useState(null);
@@ -31,21 +33,23 @@ export default function FormLogin() {
 
   useEffect(() => {
     function salveLogin() {
+      const { id } = userData;
       if (remember) {
-        saveLocalStorage('login', { email, password });
+        saveLocalStorage('login', { email, password, id });
       }
+      saveSessionStorage('login', { email, password, id });
     }
 
     async function LoginUser() {
       if (nextPage) {
-        salveLogin();
         setUserData(await saveUserContext(email));
+        salveLogin();
         navigate('/Stocks');
       }
     }
 
     LoginUser();
-  }, [nextPage]);
+  }, [nextPage, userData]);
 
   return (
     <form>

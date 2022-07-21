@@ -11,23 +11,22 @@ export default function Header({ Logged }) {
   return (
     <S.Container>
       <>
-
-        {Logged && <Sidebar /> }
+        {Logged && userData ? <Sidebar /> : null }
         <S.ContainerDataUser>
-          {Logged
-      && (
-      <>
-        <S.DivUser>
-          <img src={Icons.User} alt="Logo do usuário" />
-          {replaceNames(userData.name)}
-        </S.DivUser>
-        <S.DivUser>
-          <img src={Icons.Balance} alt="Logo do usuário" />
-          {`R$ ${userData.AccountBalance}`}
-        </S.DivUser>
-      </>
+          {Logged && userData
+            ? (
+              <>
+                <S.DivUser>
+                  <img src={Icons.User} alt="Logo do usuário" />
+                  {replaceNames(userData.name)}
+                </S.DivUser>
+                <S.DivUser>
+                  <img src={Icons.Balance} alt="Logo do usuário" />
+                  {`R$ ${userData.AccountBalance}`}
+                </S.DivUser>
+              </>
 
-      )}
+            ) : null}
         </S.ContainerDataUser>
         <S.DivName>
           XP
