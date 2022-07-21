@@ -9,17 +9,9 @@ export const Container = styled.div`
   background-image: linear-gradient(to right, #45b8e6 , #d66a9f);
   border-radius: 10px 5px 12em / 0 0 100%;
   justify-content: flex-end;
-  .SidebarContainer{
-   display: none; 
-  }
+
   @media(max-width: 800px) {
     justify-content: flex-start;
-    .SidebarContainer{
-   display: flex; 
-   z-index: 999;
-   margin-left: 20px;
-   padding: 0;
-  }
 }
 `;
 
@@ -48,15 +40,51 @@ export const DivLastName = styled.div`
 `;
 
 export const DivNameUser = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  img {
+    width: 15%;
+  }
 
+  @media(max-width: 800px) {
+
+}
+`;
+
+export const DivBalanceUser = styled.div`
+display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  img {
+    width: 15%;
+  }
+  @media(max-width: 800px) {
+
+}
+`;
+
+export const ContainerDataUser = styled.div`
+  display: flex; 
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10%;
+  font-size: 150%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
   @media(max-width: 800px) {
     display: none; 
 }
 `;
 
-export const DivBalanceUser = styled.div`
-
-  @media(max-width: 800px) {
-    display: none; 
+export const SpanSidebarContainer = styled.div`
+display: none; 
+width: 800px;
+@media(max-width: 800px) {
+    margin-right: 10%;
+    display: flex; 
+    justify-content: flex-end;
 }
 `;
