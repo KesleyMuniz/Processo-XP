@@ -6,6 +6,7 @@ function Provider({ children }) {
   const [renderForgotPassword, setRenderForgot] = useState(false);
   const [renderCreate, setCreate] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [Negotiation, setNegotiation] = useState(false);
 
   const values = useMemo(() => ({
     renderForgotPassword,
@@ -14,7 +15,9 @@ function Provider({ children }) {
     setCreate,
     userData,
     setUserData,
-  }), [renderForgotPassword, renderCreate, userData]);
+    Negotiation,
+    setNegotiation,
+  }), [renderForgotPassword, renderCreate, userData, Negotiation]);
   return (
     <Context.Provider value={values}>
       {children}

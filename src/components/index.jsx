@@ -5,6 +5,7 @@ import CreateAccount from './CreateAccount';
 import Sidebar from './Sidebar';
 import TableActions from './TableActions';
 import AvailableActions from './AvailableActions';
+import Negotiate from './Negotiate';
 
 export {
   FormLogin,
@@ -14,4 +15,5 @@ export {
   Sidebar,
   TableActions,
   AvailableActions,
+  Negotiate,
 };

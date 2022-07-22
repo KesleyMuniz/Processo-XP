@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import { saveSessionStorage } from '../../services';
 import * as S from './Table.style';
+import Context from '../../context/Context';
 
 export default function TableActions({ itens }) {
   saveSessionStorage('actions', itens);
+  const { setNegotiation } = useContext(Context);
   return (
     <S.Table>
       <S.Thead>
@@ -24,8 +26,8 @@ export default function TableActions({ itens }) {
             <S.Td>{item.v}</S.Td>
             <S.Td>{item.vw}</S.Td>
             <S.Td>
-              <button type="button">
-                <img src="Test.png" alt="Imagem test" />
+              <button type="button" onClick={() => { setNegotiation(true); }}>
+                Negociar
               </button>
             </S.Td>
           </S.Tr>
