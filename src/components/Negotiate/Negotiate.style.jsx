@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  @media(max-width: 800px) {
+    margin-top: 20%;
+}
+`;
+
 export const BG = styled.div`
   background-image: linear-gradient(to right, #296e8a , #723854);
   height: 80%;
@@ -25,9 +36,4 @@ export const Header = styled.header`
       background-color: white;
     }
   }
-`;
-export const Container = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
 `;

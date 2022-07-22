@@ -8,8 +8,8 @@ export default function Stocks() {
   console.log(Negotiation);
   return (
     <>
-      <Comp.Header Logged userData />
       {Negotiation && <Comp.Negotiate />}
+      <Comp.Header Logged userData />
       <br />
       <AvailableActions />
     </>
