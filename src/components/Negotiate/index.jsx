@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as S from './Negotiate.style';
+import Context from '../../context/Context';
 
 export default function Negotiate() {
+  const { setNegotiation } = useContext(Context);
+
   return (
-    <S.BG>
-      <S.Div>index</S.Div>
-    </S.BG>
+    <S.Container>
+      <S.BG>
+        <header>
+          <button type="button" onClick={() => { setNegotiation(false); }}>X</button>
+        </header>
+        <div>Index</div>
+      </S.BG>
+    </S.Container>
   );
 }

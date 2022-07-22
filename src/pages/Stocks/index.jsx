@@ -5,10 +5,11 @@ import Context from '../../context/Context';
 
 export default function Stocks() {
   const { Negotiation } = useContext(Context);
+  console.log(Negotiation);
   return (
     <>
       <Comp.Header Logged userData />
-      {Negotiation && Comp.Negotiate}
+      {Negotiation && <Comp.Negotiate />}
       <br />
       <AvailableActions />
     </>
