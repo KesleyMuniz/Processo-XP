@@ -6,7 +6,8 @@ import Context from '../../context/Context';
 
 export default function TableActions({ itens }) {
   saveSessionStorage('actions', itens);
-  const { setNegotiation } = useContext(Context);
+  const { setNegotiation, selectedAction, setSelected } = useContext(Context);
+  console.log(selectedAction);
   return (
     <S.Table>
       <S.Thead>
@@ -26,7 +27,14 @@ export default function TableActions({ itens }) {
             <S.Td>{item.v}</S.Td>
             <S.Td>{item.vw}</S.Td>
             <S.Td>
-              <button type="button" onClick={() => { setNegotiation(true); }}>
+              <button
+                value={item.T}
+                type="button"
+                onClick={(e) => {
+                  setNegotiation(true);
+                  setSelected(e.target.value);
+                }}
+              >
                 Negociar
               </button>
             </S.Td>

@@ -8,6 +8,7 @@ function Provider({ children }) {
   const [userData, setUserData] = useState(null);
   const [Negotiation, setNegotiation] = useState(false);
   const [nameAction, setNameAction] = useState(null);
+  const [selectedAction, setSelected] = useState([]);
 
   const values = useMemo(() => ({
     renderForgotPassword,
@@ -20,6 +21,8 @@ function Provider({ children }) {
     setNegotiation,
     nameAction,
     setNameAction,
+    selectedAction,
+    setSelected,
   }), [renderForgotPassword, renderCreate, userData, Negotiation]);
   return (
     <Context.Provider value={values}>
