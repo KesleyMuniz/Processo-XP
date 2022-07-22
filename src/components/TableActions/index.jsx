@@ -1,27 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { saveSessionStorage } from '../../services';
+import TableRow from '../TableRow';
 
 export default function TableActions({ itens }) {
+  saveSessionStorage('actions', itens);
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Ação</th>
-          <th>Quantidade</th>
-          <th>Valor(R$)</th>
-          <th>Negociar</th>
-        </tr>
-      </thead>
-      <tbody>
-        {itens.map((item) => (
-          <tr key={`${item.T}`}>
-            <td>{item.T}</td>
-            <td>{+item.v}</td>
-            <td>{(+item.c).toFixed(2)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {itens.map((item) => (
+        <>
+          <TableRow head="Ação" value={item.T} key={item.T} />
+          <TableRow head="Empresa" value={item.name} key={item.name} />
+          <TableRow head="Volume" value={item.v} key={item.v} />
+          <TableRow head="valor" value={item.vw} key={item.vw} />
+          <button type="button">Negociar</button>
+        </>
+      ))}
+    </>
   );
 }
 
