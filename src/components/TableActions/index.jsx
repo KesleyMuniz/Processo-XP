@@ -1,22 +1,37 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { saveSessionStorage } from '../../services';
-import TableRow from '../TableRow';
+import * as S from './Table.style';
 
 export default function TableActions({ itens }) {
   saveSessionStorage('actions', itens);
   return (
-    <>
-      {itens.map((item) => (
-        <>
-          <TableRow head="Ação" value={item.T} key={item.T} />
-          <TableRow head="Empresa" value={item.name} key={item.name} />
-          <TableRow head="Volume" value={item.v} key={item.v} />
-          <TableRow head="valor" value={item.vw} key={item.vw} />
-          <button type="button">Negociar</button>
-        </>
-      ))}
-    </>
+    <S.Table>
+      <S.Thead>
+        <S.Tr>
+          <S.Th>Ação</S.Th>
+          <S.Th>Empresa</S.Th>
+          <S.Th>Volume</S.Th>
+          <S.Th>Valor</S.Th>
+          <S.Th>Negociar</S.Th>
+        </S.Tr>
+      </S.Thead>
+      <S.Tbody>
+        {itens.map((item) => (
+          <S.Tr>
+            <S.Td>{item.T}</S.Td>
+            <S.Td>{item.name}</S.Td>
+            <S.Td>{item.v}</S.Td>
+            <S.Td>{item.vw}</S.Td>
+            <S.Td>
+              <button type="button">
+                <img src="Test.png" alt="Imagem test" />
+              </button>
+            </S.Td>
+          </S.Tr>
+        ))}
+      </S.Tbody>
+    </S.Table>
   );
 }
 

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
-display: flex;
-align-items: center;
 font-size: 30px;
 `;
 
@@ -20,7 +18,7 @@ export const Th = styled.th`
 `;
 
 export const Tbody = styled.tbody`
-  display: flex;
+  
 
 `;
 
