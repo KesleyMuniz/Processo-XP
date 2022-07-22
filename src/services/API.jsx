@@ -21,3 +21,12 @@ export const postAPI = (url, body) => {
       throw new Error(error);
     });
 };
+
+export const getStocksDetailed = async (stocks) => {
+  const date = new Date();
+  const dataAtual = `${date.getFullYear()}-0${date.getMonth() + 1}-${+date.getDate() - 2}`;
+  const previousDate = `${date.getFullYear()}-0${+date.getMonth() - 5}-${+date.getDate() - 2}`;
+  const URL = `https://api.polygon.io/v2/aggs/ticker/${stocks}/range/1/day/${previousDate}/${dataAtual}?adjusted=true&sort=asc&limit=5000&apiKey=336BWBp6mP2tmzuKjyIHeMWy_FIfOJWc`;
+  const data = await getAPI(URL);
+  return data.results;
+};
