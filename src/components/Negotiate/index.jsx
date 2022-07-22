@@ -8,10 +8,9 @@ export default function Negotiate() {
   return (
     <S.Container>
       <S.BG>
-        <header>
+        <S.Header>
           <button type="button" onClick={() => { setNegotiation(false); }}>X</button>
-        </header>
-        <div>Index</div>
+        </S.Header>
       </S.BG>
     </S.Container>
   );
