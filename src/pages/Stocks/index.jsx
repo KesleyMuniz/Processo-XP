@@ -5,7 +5,6 @@ import Context from '../../context/Context';
 
 export default function Stocks() {
   const { Negotiation } = useContext(Context);
-  console.log(Negotiation);
   return (
     <>
       {Negotiation && <Comp.Negotiate />}
