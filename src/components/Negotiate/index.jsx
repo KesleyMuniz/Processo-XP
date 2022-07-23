@@ -13,15 +13,30 @@ export default function Negotiate() {
   useEffect(() => {
     if (Stock && buyVolumes) {
       if (!calculatedOptions) {
-        const result = +Stock[0].vw * +buyVolumes.replace(',', '');
-        setCalValue(result);
+        const result = +Stock[0].vw * buyVolumes;
+        if (!result < 1) setCalValue(result);
       } else {
-        console.log(buyVolumes);
-        const calculate = +buyVolumes.replace(',', '') / +Stock[0].vw;
+        const calculate = buyVolumes / +Stock[0].vw;
         setCalValue(calculate);
       }
     }
   }, [buyVolumes, calculatedOptions]);
+
+  const calculateButton = (value, operation) => {
+    let Value;
+    if (operation === 'sum') {
+      Value = ((+buyVolumes) + (+value)).toFixed(2);
+    } else {
+      const result = ((+buyVolumes) - (+value)).toFixed(2);
+      if (result < 1) {
+        Value = 0.00;
+        setCalValue(0);
+      } else {
+        Value = result;
+      }
+    }
+    setBuy(Value);
+  };
 
   const getStocks = () => {
     const allStocks = getSessionStorage('actions');
@@ -32,6 +47,10 @@ export default function Negotiate() {
     getStocks();
   }, [selectedAction]);
 
+  useEffect(() => {
+    setBuy(0.00);
+    setCalValue(0.00);
+  }, [calculatedOptions]);
   return (
     <S.Container>
       <S.BG>
@@ -84,6 +103,7 @@ export default function Negotiate() {
                   type="number"
                   id="buyInput"
                   placeholder="Numeros e virgula"
+                  value={buyVolumes}
                   onChange={(e) => { setBuy(e.target.value); }}
                 />
               </div>
@@ -92,12 +112,56 @@ export default function Negotiate() {
                   <>
                     <span>Volume</span>
                     <div>{Math.floor(calculatedValue)}</div>
+                    <div>
+                      <button
+                        type="button"
+                        value={+Stock[0].vw}
+                        onClick={(e) => {
+                          calculateButton(e.target.value, 'sum');
+                        }}
+                      >
+                        +
+
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        value={+Stock[0].vw}
+                        onClick={(e) => {
+                          calculateButton(e.target.value, 'subtraction');
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
                   </>
 
                 ) : (
                   <>
                     <span>Valor total</span>
                     <div>{calculatedValue.toFixed(2).replace('.', ',')}</div>
+                    <div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBuy(buyVolumes + 1);
+                        }}
+                      >
+                        +
+
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          calculateButton(1, 'subtraction');
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
                   </>
                 )}
               </div>
