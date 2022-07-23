@@ -14,7 +14,10 @@ export default function UserBalance() {
   return (
     <div>
       {data ? (
-        <div>Saldo do usuário</div>
+        <>
+          <div>Saldo do usuário</div>
+          <data>{data.AccountBalance}</data>
+        </>
       ) : null}
     </div>
   );
