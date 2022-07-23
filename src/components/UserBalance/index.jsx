@@ -14,7 +14,7 @@ export default function UserBalance() {
 
   useEffect(() => {
     const objUser = {
-      accountBalance: +renderBalance,
+      AccountBalance: +renderBalance,
       user: data,
     };
     setFinalData(objUser);

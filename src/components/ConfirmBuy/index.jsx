@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
+import { POSTDataUser } from '../../services/userEdit';
 import * as S from './ConfirmBuy.style';
 
 export default function ConfirmBuy({ buy }) {
@@ -8,7 +9,21 @@ export default function ConfirmBuy({ buy }) {
   const { setSendBuy, purchaseData } = useContext(Context);
   console.log(buy);
   console.log(purchaseData);
-  console.log(makeSale);
+
+  useEffect(() => {
+    const createBody = () => {
+      const { AccountBalance, user } = buy;
+      const body = {
+        AccountBalance,
+      };
+      return { body, id: user.id };
+    };
+    const confirmPurchase = () => {
+      const { body, id } = createBody();
+      POSTDataUser(id, body);
+    };
+    confirmPurchase();
+  }, [makeSale]);
   return (
     <S.BG>
       <S.Container>
