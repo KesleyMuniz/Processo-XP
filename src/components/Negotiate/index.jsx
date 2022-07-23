@@ -7,7 +7,7 @@ import UserBalance from '../UserBalance';
 
 export default function Negotiate() {
   const {
-    setNegotiation, selectedAction, setPurchase,
+    setNegotiation, selectedAction, setPurchase, statusDisable,
   } = useContext(Context);
 
   const [buyVolumes, setBuy] = useState(0);
@@ -19,14 +19,14 @@ export default function Negotiate() {
     if (calculatedOptions) {
       setPurchase({
         Stock,
-        volume: +buyVolumes,
-        value: +calculatedValue.toFixed(2),
+        volume: +calculatedValue.toFixed(2),
+        value: +buyVolumes,
       });
     } else {
       setPurchase({
         Stock,
-        volume: +calculatedValue.toFixed(2),
-        value: +buyVolumes,
+        volume: +buyVolumes,
+        value: +calculatedValue.toFixed(2),
       });
     }
   }, [Stock, buyVolumes, calculatedValue]);
@@ -150,6 +150,7 @@ export default function Negotiate() {
                       <button
                         type="button"
                         value={+Stock[0].vw}
+                        disabled={statusDisable}
                         onClick={(e) => {
                           calculateButton(e.target.value, 'sum');
                         }}
@@ -182,12 +183,10 @@ export default function Negotiate() {
                     <div>
                       <button
                         type="button"
-                        onClick={() => {
-                          setBuy(buyVolumes + 1);
-                        }}
+                        disabled={statusDisable}
+                        onClick={() => { setBuy(buyVolumes + 1); }}
                       >
                         +
-
                       </button>
                     </div>
                     <div>

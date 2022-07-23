@@ -4,19 +4,32 @@ import Context from '../../context/Context';
 
 export default function UserBalance() {
   const [data, setData] = useState({});
-  // const [statusDisable, setStatusDisable] = useState(null);
   const [renderBalance, setRender] = useState(true);
-  const { purchaseData } = useContext(Context);
+  const [priceValue, setPriceValue] = useState(0);
+  const [firstRender, setFirst] = useState(true);
+  const { purchaseData, setStatusDisable } = useContext(Context);
   const { id } = getSessionStorage('login') || getLocalStorage('login');
 
-  // const verificarValues = (value) => value;
+  const verifyRender = () => {
+    if (firstRender && purchaseData.value > 0) {
+      setPriceValue(purchaseData.value);
+      setFirst(false);
+    } else if (!firstRender && purchaseData.value === 0) {
+      setFirst(true);
+    }
+  };
 
   useEffect(() => {
-    const value = data.AccountBalance - (purchaseData.volume * purchaseData.value);
-    if (!renderBalance < 1 && Math.sign(value) === 1) {
+    verifyRender();
+    const value = data.AccountBalance - (purchaseData.volume * priceValue);
+    if (!renderBalance < 1 && value > priceValue) {
       setRender(value.toFixed(2));
+      setStatusDisable(false);
+    } else {
+      setRender(value.toFixed(2));
+      setStatusDisable(true);
     }
-  }, [purchaseData]);
+  }, [purchaseData, data]);
 
   useEffect(() => {
     const dataUser = async () => {
