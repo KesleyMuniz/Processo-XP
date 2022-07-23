@@ -24,17 +24,24 @@ export default function Negotiate() {
     }
   }, [buyVolumes, calculatedOptions]);
 
+  const VerifyToFixed = (value) => {
+    if (calculatedOptions) {
+      return value.toFixed(2);
+    }
+    return value;
+  };
+
   const calculateButton = (value, operation) => {
     let Value;
     if (operation === 'sum') {
       Value = ((+buyVolumes) + (+value) + (0.01)).toFixed(2);
     } else {
-      const result = ((+buyVolumes) - (+value));
+      const result = (+buyVolumes) - (+value);
       if (result < 1) {
         Value = 0.00;
         setCalValue(0);
       } else {
-        Value = result;
+        Value = VerifyToFixed(result);
       }
     }
     setBuy(Value);
@@ -53,6 +60,7 @@ export default function Negotiate() {
     setBuy(0.00);
     setCalValue(0.00);
   }, [calculatedOptions]);
+
   return (
     <S.Container>
       <S.BG>

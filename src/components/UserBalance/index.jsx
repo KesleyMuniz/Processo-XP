@@ -11,7 +11,6 @@ export default function UserBalance() {
     };
     dataUser();
   }, []);
-  console.log(data);
   return (
     <div>
       {data ? (
