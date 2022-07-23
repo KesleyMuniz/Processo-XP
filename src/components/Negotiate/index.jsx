@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import * as S from './Negotiate.style';
 import Context from '../../context/Context';
 import { getSessionStorage } from '../../services';
+import ButtonBuy from '../ButtonBuy';
 
 export default function Negotiate() {
   const { setNegotiation, selectedAction } = useContext(Context);
@@ -35,7 +36,6 @@ export default function Negotiate() {
         Value = result;
       }
     }
-    console.log(Value);
     setBuy(Value);
   };
 
@@ -67,10 +67,6 @@ export default function Negotiate() {
           {Stock ? (
             <>
               <div>
-                <div>
-                  <span>Volume disponível</span>
-                  <div>{Stock[0].v}</div>
-                </div>
                 <div>
                   <span>Valor médio por volume</span>
                   <div>{(+Stock[0].vw).toFixed(2).replace('.', ',')}</div>
@@ -115,6 +111,10 @@ export default function Negotiate() {
               <div>
                 {calculatedOptions ? (
                   <>
+                    <div>
+                      <span>Volume disponível</span>
+                      <div>{(Stock[0].v) - Math.floor(calculatedValue)}</div>
+                    </div>
                     <span>Volume Final</span>
                     <div>{Math.floor(calculatedValue)}</div>
                     <div>
@@ -144,6 +144,10 @@ export default function Negotiate() {
 
                 ) : (
                   <>
+                    <div>
+                      <span>Volume disponível</span>
+                      <div>{(Stock[0].v) - buyVolumes}</div>
+                    </div>
                     <span>Valor total</span>
                     <div>{calculatedValue.toFixed(2).replace('.', ',')}</div>
                     <div>
@@ -170,6 +174,7 @@ export default function Negotiate() {
                   </>
                 )}
               </div>
+              <ButtonBuy />
             </>
           ) : <div>Loading...</div>}
         </div>
