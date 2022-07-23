@@ -8,9 +8,9 @@ export default function AvailableActions() {
   const actionsSession = getSessionStorage('actions');
 
   function merged(values, names) {
-    const results = names.map((screen) => ({
-      ...values.find((o) => o.T === screen.cd_acao_rdz),
-      name: screen.nm_empresa_rdz,
+    const results = names.map((name) => ({
+      ...values.find((o) => o.T === name.cd_acao_rdz),
+      name: name.nm_empresa_rdz,
     }));
 
     if (results) setActions(results);
