@@ -27,7 +27,7 @@ export default function Negotiate() {
     if (operation === 'sum') {
       Value = ((+buyVolumes) + (+value) + (0.01)).toFixed(2);
     } else {
-      const result = ((+buyVolumes) - (+value)).toFixed(2);
+      const result = ((+buyVolumes) - (+value));
       if (result < 1) {
         Value = 0.00;
         setCalValue(0);
@@ -35,6 +35,7 @@ export default function Negotiate() {
         Value = result;
       }
     }
+    console.log(Value);
     setBuy(Value);
   };
 
