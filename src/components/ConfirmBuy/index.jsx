@@ -1,18 +1,35 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Context from '../../context/Context';
+import { getLocalStorage, saveLocalStorage } from '../../services';
 import { getSessionStorage, saveSessionStorage } from '../../services/sessionStorage';
 import { POSTDataUser } from '../../services/userEdit';
 import * as S from './ConfirmBuy.style';
 
 export default function ConfirmBuy({ buy }) {
-  const navigate = useNavigate();
   const [makeSale, setMakeSale] = useState(false);
   const [completedBuy, setCompleted] = useState(false);
-  const { setSendBuy, purchaseData } = useContext(Context);
+  const { setSendBuy, purchaseData, setNegotiation } = useContext(Context);
 
   useEffect(() => {
+    function saveLocalStorageMyStocks() {
+      const { Stock, volume, value } = purchaseData;
+
+      const localStorageStocks = getLocalStorage('myStocks');
+      const myStocksArray = getLocalStorage('myStocks') !== null
+        ? localStorageStocks : [];
+
+      const newStocks = {
+        name: Stock[0].name,
+        quantity: volume,
+        amount: value,
+      };
+
+      myStocksArray.push(newStocks);
+
+      return saveLocalStorage('myStocks', myStocksArray);
+    }
+
     function saveStock() {
       const { Stock, volume } = purchaseData;
       const stocksAll = getSessionStorage('actions');
@@ -26,8 +43,9 @@ export default function ConfirmBuy({ buy }) {
       if (results) {
         saveSessionStorage('actions', results);
         setCompleted(true);
+        saveLocalStorageMyStocks();
         const myTimeout = setTimeout(() => {
-          navigate('/Account');
+          setNegotiation(false);
         }, 1000);
         return myTimeout;
       }
