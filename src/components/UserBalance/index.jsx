@@ -10,6 +10,15 @@ export default function UserBalance() {
   const [renderBalance, setRender] = useState(true);
   const [priceValue, setPriceValue] = useState(0);
   const [firstRender, setFirst] = useState(true);
+  const [finalData, setFinalData] = useState({});
+
+  useEffect(() => {
+    const objUser = {
+      accountBalance: +renderBalance,
+      user: data,
+    };
+    setFinalData(objUser);
+  }, [sendBuy]);
 
   const { id } = getSessionStorage('login') || getLocalStorage('login');
 
@@ -51,7 +60,7 @@ export default function UserBalance() {
       ) : (
         <div>Carregando...</div>
       )}
-      {sendBuy && <ConfirmBuy />}
+      {sendBuy && <ConfirmBuy buy={finalData} />}
     </div>
   );
 }

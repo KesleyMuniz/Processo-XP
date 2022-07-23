@@ -12,6 +12,9 @@ export const Container = styled.div`
 `;
 
 export const BG = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: linear-gradient(to right, #296e8a , #723854);
   height: 80%;
   position: fixed;
@@ -24,8 +27,9 @@ export const Header = styled.header`
   width: auto;
   justify-content: flex-end;
   button {
+    position: absolute;
     background-color: #D16CA1;
-    margin-right: 50px;
+    margin-right: -258px;
     margin-top: -18px;
     width: 77px;
     height: 37px;
