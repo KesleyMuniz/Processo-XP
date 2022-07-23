@@ -46,7 +46,5 @@ export default function TableActions({ itens }) {
 }
 
 TableActions.propTypes = {
-  itens: PropTypes.shape({
-    map: PropTypes.func.isRequired,
-  }).isRequired,
+  itens: PropTypes.instanceOf(Array).isRequired,
 };
