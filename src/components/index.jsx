@@ -6,6 +6,8 @@ import Sidebar from './Sidebar';
 import TableActions from './TableActions';
 import AvailableActions from './AvailableActions';
 import Negotiate from './Negotiate';
+import ButtonBuy from './ButtonBuy';
+import UserBalance from './UserBalance';
 
 export {
   FormLogin,
@@ -16,4 +18,6 @@ export {
   TableActions,
   AvailableActions,
   Negotiate,
+  ButtonBuy,
+  UserBalance,
 };

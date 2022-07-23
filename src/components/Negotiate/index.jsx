@@ -3,6 +3,7 @@ import * as S from './Negotiate.style';
 import Context from '../../context/Context';
 import { getSessionStorage } from '../../services';
 import ButtonBuy from '../ButtonBuy';
+import UserBalance from '../UserBalance';
 
 export default function Negotiate() {
   const { setNegotiation, selectedAction } = useContext(Context);
@@ -67,6 +68,7 @@ export default function Negotiate() {
           {Stock ? (
             <>
               <div>
+                <UserBalance />
                 <div>
                   <span>Valor médio por volume</span>
                   <div>{(+Stock[0].vw).toFixed(2).replace('.', ',')}</div>
