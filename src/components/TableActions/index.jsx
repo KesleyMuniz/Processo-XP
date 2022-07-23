@@ -19,26 +19,28 @@ export default function TableActions({ itens }) {
         </S.Tr>
       </S.Thead>
       <S.Tbody>
-        {itens.map((item) => (
-          <S.Tr>
-            <S.Td>{item.T}</S.Td>
-            <S.Td>{item.name}</S.Td>
-            <S.Td>{item.v}</S.Td>
-            <S.Td>{item.vw}</S.Td>
-            <S.Td>
-              <button
-                value={item.T}
-                type="button"
-                onClick={(e) => {
-                  setNegotiation(true);
-                  setSelected(e.target.value);
-                }}
-              >
-                Negociar
-              </button>
-            </S.Td>
-          </S.Tr>
-        ))}
+        <S.Tr>
+          {itens.map((item) => (
+            <span key={`${item.name}`}>
+              <S.Td>{item.T}</S.Td>
+              <S.Td>{item.name}</S.Td>
+              <S.Td>{item.v}</S.Td>
+              <S.Td>{item.vw}</S.Td>
+              <S.Td>
+                <button
+                  value={item.T}
+                  type="button"
+                  onClick={(e) => {
+                    setNegotiation(true);
+                    setSelected(e.target.value);
+                  }}
+                >
+                  Negociar
+                </button>
+              </S.Td>
+            </span>
+          ))}
+        </S.Tr>
       </S.Tbody>
     </S.Table>
   );

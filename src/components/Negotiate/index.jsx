@@ -85,6 +85,7 @@ export default function Negotiate() {
                     id="valueInputValue"
                     name="optionsMethod"
                     checked={calculatedOptions}
+                    readOnly
                     onClick={() => setOptions(true)}
                   />
                   valor
@@ -96,6 +97,7 @@ export default function Negotiate() {
                   id="valueInputVolume"
                   name="optionsMethod"
                   checked={!calculatedOptions}
+                  readOnly
                   onClick={() => setOptions(false)}
                 />
                 volume
