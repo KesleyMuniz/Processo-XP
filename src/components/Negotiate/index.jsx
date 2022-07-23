@@ -16,7 +16,7 @@ export default function Negotiate() {
         const result = +Stock[0].vw * buyVolumes;
         if (!result < 1) setCalValue(result);
       } else {
-        const calculate = buyVolumes / +Stock[0].vw;
+        const calculate = +buyVolumes / +Stock[0].vw;
         setCalValue(calculate);
       }
     }
@@ -25,7 +25,7 @@ export default function Negotiate() {
   const calculateButton = (value, operation) => {
     let Value;
     if (operation === 'sum') {
-      Value = ((+buyVolumes) + (+value)).toFixed(2);
+      Value = ((+buyVolumes) + (+value) + (0.01)).toFixed(2);
     } else {
       const result = ((+buyVolumes) - (+value)).toFixed(2);
       if (result < 1) {
@@ -72,7 +72,7 @@ export default function Negotiate() {
                 </div>
                 <div>
                   <span>Valor médio por volume</span>
-                  <div>{(+Stock[0].vw).toFixed(2)}</div>
+                  <div>{(+Stock[0].vw).toFixed(2).replace('.', ',')}</div>
                 </div>
               </div>
               <div>
@@ -112,7 +112,7 @@ export default function Negotiate() {
               <div>
                 {calculatedOptions ? (
                   <>
-                    <span>Volume</span>
+                    <span>Volume Final</span>
                     <div>{Math.floor(calculatedValue)}</div>
                     <div>
                       <button
