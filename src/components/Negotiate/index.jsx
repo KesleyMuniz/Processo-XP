@@ -7,7 +7,7 @@ import UserBalance from '../UserBalance';
 
 export default function Negotiate() {
   const {
-    setNegotiation, selectedAction, setPurchase, statusDisable,
+    setNegotiation, selectedAction, setPurchase, statusDisable, setSendBuy,
   } = useContext(Context);
 
   const [buyVolumes, setBuy] = useState(0);
@@ -86,7 +86,10 @@ export default function Negotiate() {
         <S.Header>
           <button
             type="button"
-            onClick={() => { setNegotiation(false); }}
+            onClick={() => {
+              setNegotiation(false);
+              setSendBuy(false);
+            }}
           >
             X
           </button>

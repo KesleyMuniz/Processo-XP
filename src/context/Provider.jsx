@@ -12,6 +12,7 @@ function Provider({ children }) {
   const [data, setData] = useState({});
   const [purchaseData, setPurchase] = useState(null);
   const [statusDisable, setStatusDisable] = useState(null);
+  const [sendBuy, setSendBuy] = useState(null);
 
   const values = useMemo(() => ({
     renderForgotPassword,
@@ -32,6 +33,8 @@ function Provider({ children }) {
     setPurchase,
     statusDisable,
     setStatusDisable,
+    sendBuy,
+    setSendBuy,
   }), [
     statusDisable,
     purchaseData,
@@ -39,7 +42,10 @@ function Provider({ children }) {
     renderCreate,
     userData,
     Negotiation,
-    data]);
+    data,
+    sendBuy,
+    setSendBuy,
+  ]);
   return (
     <Context.Provider value={values}>
       {children}

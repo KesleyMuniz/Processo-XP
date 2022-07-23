@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { getAPI, getLocalStorage, getSessionStorage } from '../../services';
 import Context from '../../context/Context';
+import ConfirmBuy from '../ConfirmBuy';
 
 export default function UserBalance() {
+  const { purchaseData, setStatusDisable, sendBuy } = useContext(Context);
+
   const [data, setData] = useState({});
   const [renderBalance, setRender] = useState(true);
   const [priceValue, setPriceValue] = useState(0);
   const [firstRender, setFirst] = useState(true);
-  const { purchaseData, setStatusDisable } = useContext(Context);
+
   const { id } = getSessionStorage('login') || getLocalStorage('login');
 
   const verifyRender = () => {
@@ -48,6 +51,7 @@ export default function UserBalance() {
       ) : (
         <div>Carregando...</div>
       )}
+      {sendBuy && <ConfirmBuy />}
     </div>
   );
 }

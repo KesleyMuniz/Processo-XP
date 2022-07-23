@@ -8,6 +8,7 @@ import AvailableActions from './AvailableActions';
 import Negotiate from './Negotiate';
 import ButtonBuy from './ButtonBuy';
 import UserBalance from './UserBalance';
+import ConfirmBuy from './ConfirmBuy';
 
 export {
   FormLogin,
@@ -20,4 +21,5 @@ export {
   Negotiate,
   ButtonBuy,
   UserBalance,
+  ConfirmBuy,
 };
