@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 
 const DATE = new Date();
@@ -9,7 +10,7 @@ export const getAPI = async (url) => {
     const result = await axios.get(url).then((response) => response.data);
     return result;
   } catch (e) {
-    return console.log(e.response);
+    return e.response.data;
   }
 };
 

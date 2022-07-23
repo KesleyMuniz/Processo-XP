@@ -38,14 +38,16 @@ export default function UserBalance() {
     };
     dataUser();
   }, []);
+
   return (
     <div>
-      {data ? (
-        <>
-          <div>Saldo restante</div>
-          <data>{renderBalance || data.AccountBalance}</data>
-        </>
-      ) : null}
+      <div>Saldo restante</div>
+
+      {+renderBalance ? (
+        <data>{renderBalance}</data>
+      ) : (
+        <div>Carregando...</div>
+      )}
     </div>
   );
 }
