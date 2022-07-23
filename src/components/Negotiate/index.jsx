@@ -6,11 +6,30 @@ import ButtonBuy from '../ButtonBuy';
 import UserBalance from '../UserBalance';
 
 export default function Negotiate() {
-  const { setNegotiation, selectedAction } = useContext(Context);
+  const {
+    setNegotiation, selectedAction, setPurchase,
+  } = useContext(Context);
+
   const [buyVolumes, setBuy] = useState(0);
   const [Stock, setStock] = useState(null);
   const [calculatedOptions, setOptions] = useState(true);
   const [calculatedValue, setCalValue] = useState(0);
+
+  useEffect(() => {
+    if (calculatedOptions) {
+      setPurchase({
+        Stock,
+        volume: +buyVolumes,
+        value: +calculatedValue.toFixed(2),
+      });
+    } else {
+      setPurchase({
+        Stock,
+        volume: +calculatedValue.toFixed(2),
+        value: +buyVolumes,
+      });
+    }
+  }, [Stock, buyVolumes, calculatedValue]);
 
   useEffect(() => {
     if (Stock && buyVolumes) {
