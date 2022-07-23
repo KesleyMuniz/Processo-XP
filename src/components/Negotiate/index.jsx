@@ -84,6 +84,7 @@ export default function Negotiate() {
                     type="radio"
                     id="valueInputValue"
                     name="optionsMethod"
+                    checked={calculatedOptions}
                     onClick={() => setOptions(true)}
                   />
                   valor
@@ -94,6 +95,7 @@ export default function Negotiate() {
                   type="radio"
                   id="valueInputVolume"
                   name="optionsMethod"
+                  checked={!calculatedOptions}
                   onClick={() => setOptions(false)}
                 />
                 volume
@@ -166,7 +168,7 @@ export default function Negotiate() {
                 )}
               </div>
             </>
-          ) : null}
+          ) : <div>Loading...</div>}
         </div>
       </S.BG>
     </S.Container>
