@@ -21,6 +21,7 @@ export const BG = styled.div`
   width: 60%;
   border-radius: 5%;
   z-index: 999;
+  font-size: 30px;
 `;
 export const Header = styled.header`
   display: flex;
@@ -51,9 +52,8 @@ export const ContainerButtonClosed = styled.div`
 
 export const ContainerUserBalance = styled.div`
   position: absolute;
-  top: 161px;
-  right: 80px;
-  font-size: 40px;
+  top: 190px;
+  right: 110px;
   div{
     display: flex;
     justify-content: center;
@@ -64,8 +64,8 @@ export const ContainerUserBalance = styled.div`
 
 export const ContainerPurchaseOptions = styled.div`
     position: absolute;
-    top: 156px;
-    right: 362px;
+    top: 12px;
+    right: 345px;
     font-size: 40px;
   span {
     display: flex;
@@ -77,5 +77,45 @@ export const ContainerPurchaseOptions = styled.div`
   input {
     margin: 20px;
 
+  }
+`;
+
+export const ContainerInputValue = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 500px;
+  right: -420px;
+  input {
+    font-size: 20px;
+    border-radius: 5%;
+    text-align: center;
+    width: 300px;
+    height: 100px;
+  }
+`;
+
+export const ContainerInputBuy = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 641px;
+  right: -460px;
+  button {
+    font-size: 20px;
+    border-radius: 5%;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+  }
+`;
+
+export const ContainerVolumeFinal = styled.div`
+  position: absolute;
+  top: 304px;
+  right: 79px;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 `;

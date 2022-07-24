@@ -102,18 +102,23 @@ export default function Negotiate() {
                   setOptions={setOptions}
                 />
               </S.ContainerPurchaseOptions>
-              <Com.InputValue
-                buyVolumes={buyVolumes}
-                setBuy={setBuy}
-              />
+              <S.ContainerInputValue>
+                <Com.InputValue
+                  buyVolumes={buyVolumes}
+                  setBuy={setBuy}
+                />
+              </S.ContainerInputValue>
               <div>
                 {calculatedOptions ? (
                   <>
-                    <Com.AvailableVolume
-                      value={Stock[0].v}
-                      calculatedValue={calculatedValue}
-                      calculatedOptions
-                    />
+                    <S.ContainerVolumeFinal>
+
+                      <Com.AvailableVolume
+                        value={Stock[0].v}
+                        calculatedValue={calculatedValue}
+                        calculatedOptions
+                      />
+                    </S.ContainerVolumeFinal>
                     <Com.FinalVolume value={calculatedValue} />
                     <Com.PlusAndMinusButtons
                       value={+Stock[0].vw}
@@ -139,6 +144,7 @@ export default function Negotiate() {
                       calculatedOptions={false}
                     />
                     <Com.Amount value={calculatedValue} />
+
                     <Com.NegativeAndPositiveButtons
                       disabled={statusDisable}
                       subtraction={false}
@@ -155,7 +161,9 @@ export default function Negotiate() {
                   </>
                 )}
               </div>
-              <ButtonBuy />
+              <S.ContainerInputBuy>
+                <ButtonBuy />
+              </S.ContainerInputBuy>
             </>
           ) : <div>Loading...</div>}
         </div>

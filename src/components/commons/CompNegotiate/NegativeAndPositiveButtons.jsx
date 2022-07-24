@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import * as S from './style';
 
 export default function NegativeAndPositiveButtons({
   disabled, functionOption, name, subtraction, buyVolumes,
@@ -11,7 +12,7 @@ export default function NegativeAndPositiveButtons({
     return functionOption(buyVolumes + 1);
   };
   return (
-    <div>
+    <S.ContainerNegativeAndPositive>
       <button
         type="button"
         disabled={disabled}
@@ -19,7 +20,7 @@ export default function NegativeAndPositiveButtons({
       >
         {name}
       </button>
-    </div>
+    </S.ContainerNegativeAndPositive>
   );
 }
 

@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import * as S from './style';
 
 export default function PurchaseOptions({ calculatedOptions, setOptions }) {
   return (
-    <>
+    <S.ContainerPurchaseOptions>
       <div>
         Opções de compras
       </div>
       <span>
         <label htmlFor="valueInputValue">
-          valor
+          VALOR
           <input
             type="radio"
             id="valueInputValue"
@@ -28,10 +29,10 @@ export default function PurchaseOptions({ calculatedOptions, setOptions }) {
             readOnly
             onClick={() => setOptions(false)}
           />
-          volume
+          VOLUME
         </label>
       </span>
-    </>
+    </S.ContainerPurchaseOptions>
   );
 }
 
