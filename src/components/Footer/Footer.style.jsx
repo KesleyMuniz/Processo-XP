@@ -26,7 +26,7 @@ margin-left: 2px;
     background: none;
     box-shadow: 1px 2px 2px black;
     border-radius: 50% ;
-
+  }
   img {
     border-radius: 50% ;
     border: 2px solid black;
