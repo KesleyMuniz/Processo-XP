@@ -12,6 +12,8 @@ import ConfirmBuy from './ConfirmBuy';
 import MyActions from './MyActions';
 import AccountTransactions from './AccountTransactions';
 import NegotiateMyActions from './NegotiateMyActions';
+import ConfirmSell from './ConfirmSell';
+import UserBalanceStocks from './UserBalanceStocks';
 
 export {
   FormLogin,
@@ -28,4 +30,6 @@ export {
   MyActions,
   AccountTransactions,
   NegotiateMyActions,
+  ConfirmSell,
+  UserBalanceStocks,
 };
