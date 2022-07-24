@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import * as S from './NegotiateMyActions.Style';
 import Context from '../../context/Context';
-import ButtonClose from '../commons/ButtonClose';
+import * as Com from '../commons';
 
 export default function NegotiateMyActions() {
   const { selectedAction } = useContext(Context);
@@ -10,11 +10,8 @@ export default function NegotiateMyActions() {
     <S.Container>
       <S.BG>
         <S.Header>
-          <ButtonClose />
-          <div>
-            <span>Valor médio por volume</span>
-            <div>{(+selectedAction.vw).toFixed(2).replace('.', ',')}</div>
-          </div>
+          <Com.ButtonClose />
+          <Com.AverageValue value={+selectedAction.vw} />
         </S.Header>
       </S.BG>
     </S.Container>
