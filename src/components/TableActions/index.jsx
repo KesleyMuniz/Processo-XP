@@ -27,11 +27,11 @@ export default function TableActions({ itens }) {
           <S.Tr key={`${randomID()}`}>
             <S.Td>{item.T}</S.Td>
             <S.Td>{item.name}</S.Td>
-            <S.Td>{(item.v).toFixed(0)}</S.Td>
-            <S.Td>{(item.o).toFixed(2)}</S.Td>
-            <S.Td>{(item.l).toFixed(2)}</S.Td>
-            <S.Td>{(item.vw).toFixed(2)}</S.Td>
-            <S.Td>{(item.h).toFixed(2)}</S.Td>
+            <S.Td>{(+item.v).toFixed(0)}</S.Td>
+            <S.Td>{(+item.o).toFixed(2)}</S.Td>
+            <S.Td>{(+item.l).toFixed(2)}</S.Td>
+            <S.Td>{(+item.vw).toFixed(2)}</S.Td>
+            <S.Td>{(+item.h).toFixed(2)}</S.Td>
             <S.Td>
               <button
                 value={item.T}
