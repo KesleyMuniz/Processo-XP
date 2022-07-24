@@ -92,7 +92,10 @@ export default function Negotiate() {
                 <UserBalance />
                 <Com.AverageValue value={+Stock[0].vw} />
               </div>
-              <Com.PurchaseOptions calculatedOptions={calculatedOptions} setOptions={setOptions} />
+              <Com.PurchaseOptions
+                calculatedOptions={calculatedOptions}
+                setOptions={setOptions}
+              />
               <Com.InputValue
                 buyVolumes={buyVolumes}
                 setBuy={setBuy}
