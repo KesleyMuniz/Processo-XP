@@ -9,7 +9,8 @@ export default function MyActions() {
   const myStocksLocalStorage = getLocalStorage('myStocks');
   return (
     <span>
-      <TableMyActions itens={myStocksLocalStorage} />
+      {myStocksLocalStorage
+      && <TableMyActions itens={myStocksLocalStorage} />}
       {openNegotiation && (
         <div>
           <NegotiateMyActions />
