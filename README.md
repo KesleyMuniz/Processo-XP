@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+<h1 align="center">XP Investimentos</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#como-rodar">Como rodar?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#licença-e-autora">Licença e Autora</a>
+</p>
 
-## Available Scripts
+## Sobre
+Projeto desenvolvido durante o processo seletivo da [XP Inc.](https://www.xpinc.com/). Consiste em criar uma aplicação de Mobile/Front ou Backend relacionada a investimento. Eu optei por frontend, acredito que tinha maneira mais 'fáceis' de realizar essa aplicação, porem optei por pensar grande e investir muito tempo pensando em como fazer isso da forma mais correta possível, não sei se consegue entregar tudo que foi proposto da melhor forma. Tive alguns problemas em relação a API e pois não encontrei nenhuma gratuita que seja boa o suficiente e que me traga tudo, decide por usar uma api que atualizada dia a dia de graça(limitando apenas o numero de requisição por minuto) que no caso é a [Polygon](https://polygon.io/docs/stocks/getting-started), começo deu muito trabalho porque ela trás mais de 11 mil ações, ai decide filtrar isso com uma outra api menor e de brinde complementar ainda mais a Polygon, então acabei usando a Polygon e uma api de ações feita para fins de estudo chama [api-cotacao-b3](https://api-cotacao-b3.labdo.it/).
+Como eu não queria usar o Mock para nada, a minha aplicação salva as ações compradas no localStorage e isso é outra coisa que da muito problema junto com os Hooks, confere que ainda não superei os problemas disso, como por exemplo, não consigo colocar uma imagem no botão da minha tabela.
+Esse projeto foi o mais desafiador que eu tive durante a trybe e eu amo isso, os problemas são essenciais para o nosso aprendizado.
 
-In the project directory, you can run:
 
-### `npm start`
+### Status:
+- 1 - Tela de login - Concluída ✅ - CSS: 100%
+- 2 - Tela de compra - Concluída ✅ - CSS: 50% 
+- 4 - Tela de saque e deposito - Concluída ✅ -CSS: 20%
+- 3 - Tela de venda - 98%(As vezes crash depois da venda ser concluída)  - CSS: 50%
+- 5 - Tela de cadastro 🚧 - CSS: 0
+- 6 - Tela de recurar senha 🚧 - CSS: 0
+- 7 - Aplicar o css em todas as telas 🚧
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Este projeto está sendo desenvolvido utilizando:
 
-### `npm test`
+### 💻 Web
+- [ReactJS](https://reactjs.org/)
+- [axios](https://axios-http.com/docs/intro)
+- [emailjs-com](https://www.emailjs.com/)
+- [styled-components](https://styled-components.com/)
+- [react-dotenv](https://www.npmjs.com/package/react-dotenv)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como rodar?
 
-### `npm run build`
+Execute os seguintes comandos no seu terminal:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o repositório
+$ git clone git@github.com:KesleyMuniz/Processo-XP.git
+# Entre no repositório
+$ cd Processo-XP
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 💻 Web
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+# Instale as dependências
+$ npm install
+# Caso queira testar o envio de email para recuperar a senha é preciso criar algumas variáveis de ambiente no arquivo .env e essas variáveis tem que ser retirada no site da emailjs;
+- REACT_APP_SERVICE_ID=XXXXXXX
+- REACT_APP_TEMPLATE_ID=XXXXXXXX
+# Execute a aplicação
+$ npm start
+# 
+```
+## Para fazer login você pode usar algum conta dessas
+ ### [CONTAS EM MOCK SIMULANDO PESSOAS JA CADASTRADAS](https://62d8431d90883139358e6521.mockapi.io/User)
+Recomendo que acesse o seu navegador pelo 'On Your Network' ao invés do localStorage, achei bem mais estável para ver o resultado.
