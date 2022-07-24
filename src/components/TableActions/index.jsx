@@ -7,7 +7,6 @@ import Context from '../../context/Context';
 export default function TableActions({ itens }) {
   saveSessionStorage('actions', itens);
   const randomID = () => useId();
-  console.log(itens);
   const { setNegotiation, setSelected } = useContext(Context);
   return (
     <S.Table>

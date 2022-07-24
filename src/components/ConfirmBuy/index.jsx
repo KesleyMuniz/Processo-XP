@@ -20,8 +20,13 @@ export default function ConfirmBuy({ buy }) {
         ? localStorageStocks : [];
 
       const newStocks = {
+        T: Stock[0].T,
         name: Stock[0].name,
-        quantity: volume,
+        v: volume,
+        o: Stock[0].o,
+        l: Stock[0].l,
+        vw: Stock[0].vw,
+        h: Stock[0].h,
         amount: value,
       };
 
