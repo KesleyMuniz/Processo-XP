@@ -33,7 +33,7 @@ export default function TableMyActions({ itens }) {
                 <S.Td>{(+item.amount).toFixed(2)}</S.Td>
                 <S.Td>{(+item.h).toFixed(2)}</S.Td>
                 <S.Td>
-                  <button
+                  <S.Button
                     value={item.T}
                     type="button"
                     onClick={() => {
@@ -42,7 +42,7 @@ export default function TableMyActions({ itens }) {
                     }}
                   >
                     Negociar
-                  </button>
+                  </S.Button>
                 </S.Td>
               </S.Tr>
             ))}
