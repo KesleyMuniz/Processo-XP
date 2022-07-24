@@ -2,13 +2,12 @@ import { getLocalStorage } from './localStorage';
 import { getSessionStorage } from './sessionStorage';
 import { getDataUser, POSTDataUser } from './userEdit';
 
-const { id } = getLocalStorage('login') || getSessionStorage('login');
-
 const createBody = (value) => ({
   AccountBalance: value,
 });
 
 const getMoney = async (value) => {
+  const { id } = getLocalStorage('login') || getSessionStorage('login');
   const { AccountBalance } = await getDataUser(id);
   const body = createBody((+AccountBalance) - (+value));
   const result = POSTDataUser(id, body);
@@ -16,6 +15,7 @@ const getMoney = async (value) => {
 };
 
 const putMoney = async (value) => {
+  const { id } = getLocalStorage('login') || getSessionStorage('login');
   const { AccountBalance } = await getDataUser(id);
   const body = createBody((+AccountBalance) + (+value));
   const result = POSTDataUser(id, body);
