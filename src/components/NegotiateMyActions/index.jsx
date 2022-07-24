@@ -3,15 +3,35 @@ import * as S from './NegotiateMyActions.Style';
 import Context from '../../context/Context';
 import * as Com from '../commons';
 import { getLocalStorage } from '../../services';
-import ButtonBuy from '../ButtonBuy';
+import UserBalanceStocks from '../UserBalanceStocks';
+import ButtonSell from '../ButtonSell';
 
 export default function NegotiateMyActions() {
-  const { selectedAction, statusDisable } = useContext(Context);
+  const {
+    selectedAction, statusDisable, setPurchase,
+  } = useContext(Context);
 
   const [buyVolumes, setBuy] = useState(0);
   const [Stock, setStock] = useState(null);
   const [calculatedOptions, setOptions] = useState(true);
   const [calculatedValue, setCalValue] = useState(0);
+  const [newStock, setNewStock] = useState(null);
+
+  useEffect(() => {
+    if (calculatedOptions) {
+      setPurchase({
+        ...newStock,
+        volume: +calculatedValue.toFixed(2),
+        value: +buyVolumes,
+      });
+    } else {
+      setPurchase({
+        ...newStock,
+        volume: +buyVolumes,
+        value: +calculatedValue.toFixed(2),
+      });
+    }
+  }, [Stock, buyVolumes, calculatedValue]);
 
   useEffect(() => {
     if (Stock && buyVolumes) {
@@ -51,11 +71,9 @@ export default function NegotiateMyActions() {
   const getStocks = () => {
     const allStocks = getLocalStorage('myStocks');
     const stocksData = allStocks.filter((el) => (
-      el.T === selectedAction.T
-      && el.v === selectedAction.v
-      && el.amount === selectedAction.amount
-      && el.vw === selectedAction.vw
+      el.operationCode === selectedAction.operationCode
     ));
+    setNewStock(stocksData[0]);
     setStock(stocksData);
   };
 
@@ -73,6 +91,7 @@ export default function NegotiateMyActions() {
             <>
               <div>
                 <Com.AverageValue value={+selectedAction.vw} />
+                <UserBalanceStocks />
               </div>
               <Com.PurchaseOptions
                 calculatedOptions={calculatedOptions}
@@ -86,7 +105,7 @@ export default function NegotiateMyActions() {
                 {calculatedOptions ? (
                   <>
                     <Com.AvailableVolume
-                      value={Stock[0].v}
+                      value={+Stock[0].v}
                       calculatedValue={calculatedValue}
                       calculatedOptions
                     />
@@ -130,7 +149,7 @@ export default function NegotiateMyActions() {
                   </>
                 )}
               </div>
-              <ButtonBuy />
+              <ButtonSell />
             </>
           ) : <div>Loading...</div>}
         </div>
