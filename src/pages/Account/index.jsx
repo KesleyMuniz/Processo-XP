@@ -6,6 +6,7 @@ export default function AccountTransactions() {
     <div>
       <Comp.Header Logged userData />
       <Comp.AccountTransactions />
+      <Comp.Footer />
     </div>
   );
 }

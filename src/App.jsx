@@ -12,6 +12,7 @@ function App() {
         <Route path="/Registration" element={<Page.Registration />} />
         <Route path="/Stocks" element={<Page.Stocks />} />
         <Route path="/Account" element={<Page.Account />} />
+        <Route path="/Profile" element={<Page.Profile />} />
       </Routes>
     </div>
   );

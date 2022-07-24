@@ -36,7 +36,7 @@ export default function Footer() {
         <S.Button>
           <button
             type="button"
-            onClick={() => { navigate('/Stocks'); }}
+            onClick={() => { navigate('/Profile'); }}
           >
             <img
               src={logoProfile}
