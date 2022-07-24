@@ -9,6 +9,7 @@ import Negotiate from './Negotiate';
 import ButtonBuy from './ButtonBuy';
 import UserBalance from './UserBalance';
 import ConfirmBuy from './ConfirmBuy';
+import Account from './Account';
 
 export {
   FormLogin,
@@ -22,4 +23,5 @@ export {
   ButtonBuy,
   UserBalance,
   ConfirmBuy,
+  Account,
 };

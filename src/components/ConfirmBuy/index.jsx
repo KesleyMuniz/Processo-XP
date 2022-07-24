@@ -50,6 +50,7 @@ export default function ConfirmBuy({ buy }) {
         setCompleted(true);
         saveLocalStorageMyStocks();
         const myTimeout = setTimeout(() => {
+          setSendBuy(false);
           setNegotiation(false);
         }, 1000);
         return myTimeout;
