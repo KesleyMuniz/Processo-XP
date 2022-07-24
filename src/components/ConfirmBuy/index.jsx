@@ -9,6 +9,7 @@ import * as S from './ConfirmBuy.style';
 export default function ConfirmBuy({ buy }) {
   const [makeSale, setMakeSale] = useState(false);
   const [completedBuy, setCompleted] = useState(false);
+
   const { setSendBuy, purchaseData, setNegotiation } = useContext(Context);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function ConfirmBuy({ buy }) {
         vw: Stock[0].vw,
         h: Stock[0].h,
         amount: value,
+        operationCode: Math.floor(Math.random() * 10000000000000),
       };
 
       myStocksArray.push(newStocks);
