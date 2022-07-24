@@ -10,6 +10,7 @@ import ButtonBuy from './ButtonBuy';
 import UserBalance from './UserBalance';
 import ConfirmBuy from './ConfirmBuy';
 import MyActions from './MyActions';
+import AccountTransactions from './AccountTransactions';
 
 export {
   FormLogin,
@@ -24,4 +25,5 @@ export {
   UserBalance,
   ConfirmBuy,
   MyActions,
+  AccountTransactions,
 };
