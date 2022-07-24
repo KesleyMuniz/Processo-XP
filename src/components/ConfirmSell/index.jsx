@@ -27,7 +27,8 @@ export default function ConfirmSell({ sell }) {
       const storageStock = getLocalStorage('myStocks');
       const getStock = storageStock.filter((el) => el.operationCode === cdg);
       const otherStocks = storageStock.filter((el) => el.operationCode !== cdg);
-      const value = verifyVolumeStocks(getStock[0].v, volume);
+      const stockValue = getStock[0].v ? getStock[0].v : 0;
+      const value = verifyVolumeStocks(stockValue, volume);
       if (value) {
         saveLocalStorage('myStocks', otherStocks);
         setSave(true);
@@ -43,7 +44,7 @@ export default function ConfirmSell({ sell }) {
         const myTimeout = setTimeout(() => {
           setSendSell(false);
           setOpen(false);
-        }, 1000);
+        }, 4000);
         return myTimeout;
       }
       return false;

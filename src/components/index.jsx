@@ -14,6 +14,7 @@ import AccountTransactions from './AccountTransactions';
 import NegotiateMyActions from './NegotiateMyActions';
 import ConfirmSell from './ConfirmSell';
 import UserBalanceStocks from './UserBalanceStocks';
+import Footer from './Footer';
 
 export {
   FormLogin,
@@ -32,4 +33,5 @@ export {
   NegotiateMyActions,
   ConfirmSell,
   UserBalanceStocks,
+  Footer,
 };

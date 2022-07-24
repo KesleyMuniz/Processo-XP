@@ -8,7 +8,7 @@ export default function TableMyActions({ itens }) {
   const { setOpen, setSelected } = useContext(Context);
   return (
     <div>
-      {itens && (
+      {itens ? (
         <S.Table>
           <S.Thead>
             <S.Tr>
@@ -48,7 +48,7 @@ export default function TableMyActions({ itens }) {
             ))}
           </S.Tbody>
         </S.Table>
-      )}
+      ) : <div>Loading...</div>}
     </div>
   );
 }

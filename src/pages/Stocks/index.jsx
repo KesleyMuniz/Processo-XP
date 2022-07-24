@@ -30,6 +30,7 @@ export default function Stocks() {
       ) : (
         <Comp.AvailableActions />
       )}
+      <Comp.Footer />
     </S.Container>
   );
 }

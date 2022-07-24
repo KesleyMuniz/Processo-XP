@@ -33,16 +33,17 @@ export default function TableActions({ itens }) {
             <S.Td>{(+item.vw).toFixed(2)}</S.Td>
             <S.Td>{(+item.h).toFixed(2)}</S.Td>
             <S.Td>
-              <button
+              <S.Button
                 value={item.T}
                 type="button"
+                className="button-18"
                 onClick={(e) => {
                   setNegotiation(true);
                   setSelected(e.target.value);
                 }}
               >
                 Negociar
-              </button>
+              </S.Button>
             </S.Td>
           </S.Tr>
         ))}
