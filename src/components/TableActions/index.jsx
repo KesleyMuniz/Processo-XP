@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React, { useContext, useId } from 'react';
 import { saveSessionStorage } from '../../services';
 import * as S from './Table.style';
 import Context from '../../context/Context';
 
 export default function TableActions({ itens }) {
   saveSessionStorage('actions', itens);
+  const randomID = () => useId();
   const { setNegotiation, setSelected } = useContext(Context);
   return (
     <S.Table>
@@ -14,28 +15,35 @@ export default function TableActions({ itens }) {
           <S.Th>Ação</S.Th>
           <S.Th>Empresa</S.Th>
           <S.Th>Volume</S.Th>
-          <S.Th>Valor</S.Th>
+          <S.Th>Abertura</S.Th>
+          <S.Th>Baixo</S.Th>
+          <S.Th>Médio</S.Th>
+          <S.Th>Alto</S.Th>
           <S.Th>Negociar</S.Th>
         </S.Tr>
       </S.Thead>
       <S.Tbody>
         {itens.map((item) => (
-          <S.Tr>
+          <S.Tr key={`${randomID()}`}>
             <S.Td>{item.T}</S.Td>
             <S.Td>{item.name}</S.Td>
-            <S.Td>{item.v}</S.Td>
-            <S.Td>{item.vw}</S.Td>
+            <S.Td>{(+item.v).toFixed(0)}</S.Td>
+            <S.Td>{(+item.o).toFixed(2)}</S.Td>
+            <S.Td>{(+item.l).toFixed(2)}</S.Td>
+            <S.Td>{(+item.vw).toFixed(2)}</S.Td>
+            <S.Td>{(+item.h).toFixed(2)}</S.Td>
             <S.Td>
-              <button
+              <S.Button
                 value={item.T}
                 type="button"
+                className="button-18"
                 onClick={(e) => {
                   setNegotiation(true);
                   setSelected(e.target.value);
                 }}
               >
                 Negociar
-              </button>
+              </S.Button>
             </S.Td>
           </S.Tr>
         ))}
@@ -45,7 +53,5 @@ export default function TableActions({ itens }) {
 }
 
 TableActions.propTypes = {
-  itens: PropTypes.shape({
-    map: PropTypes.func.isRequired,
-  }).isRequired,
+  itens: PropTypes.instanceOf(Array).isRequired,
 };

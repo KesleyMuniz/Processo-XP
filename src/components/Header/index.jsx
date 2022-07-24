@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import * as S from './Header.style';
 import Sidebar from '../Sidebar';
 import * as Icons from '../../assets/icons';
 import { replaceNames, getSessionStorage, getLocalStorage } from '../../services';
 import { getUserIDMockAPI } from '../../Mocks/Users';
+import Context from '../../context/Context';
 
 export default function Header({ Logged, userData }) {
   const [loading, setLoading] = useState(null);
   const [renderData, setRender] = useState(null);
+  const { completeTransaction } = useContext(Context);
 
   const userSession = getSessionStorage('login');
   const userLocal = getLocalStorage('login');
@@ -20,6 +22,15 @@ export default function Header({ Logged, userData }) {
       setLoading(data);
     }
   };
+
+  useEffect(() => {
+    validadeRender();
+    setTimeout(() => {
+      setLoading(null);
+      setRender(null);
+    }, 2000);
+  }, [completeTransaction]);
+
   useEffect(() => {
     if (loading && !renderData) {
       setRender([loading]);
@@ -28,6 +39,7 @@ export default function Header({ Logged, userData }) {
       validadeRender();
     }
   }, [loading, renderData]);
+
   return (
     <S.Container>
       <>

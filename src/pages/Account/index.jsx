@@ -1,7 +1,12 @@
 import React from 'react';
+import * as Comp from '../../components';
 
-export default function Account() {
+export default function AccountTransactions() {
   return (
-    <div>login</div>
+    <div>
+      <Comp.Header Logged userData />
+      <Comp.AccountTransactions />
+      <Comp.Footer />
+    </div>
   );
 }

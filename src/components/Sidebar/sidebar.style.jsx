@@ -29,5 +29,5 @@ export const ULContainer = styled.ul`
 `;
 
 export const LI = styled.li`
-    
+    display: flex;
 `;

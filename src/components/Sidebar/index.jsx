@@ -25,6 +25,6 @@ export default function Sidebar({ name, AccountBalance }) {
 }
 
 Sidebar.propTypes = {
-  AccountBalance: PropTypes.string.isRequired,
+  AccountBalance: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };

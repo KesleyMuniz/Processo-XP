@@ -5,6 +5,7 @@ import { saveLocalStorage, getLocalStorage } from '../../services/localStorage';
 import Context from '../../context/Context';
 import saveUserContext from '../../services/saveUsers';
 import { saveSessionStorage } from '../../services';
+import * as S from './FormLogin.style';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -34,10 +35,15 @@ export default function FormLogin() {
   useEffect(() => {
     function salveLogin() {
       const { id } = userData;
+      const hour = Date.now();
       if (remember) {
-        saveLocalStorage('login', { email, password, id });
+        saveLocalStorage('login', {
+          email, password, id, hour,
+        });
       }
-      saveSessionStorage('login', { email, password, id });
+      saveSessionStorage('login', {
+        email, password, id, hour,
+      });
     }
 
     async function LoginUser() {
@@ -52,58 +58,58 @@ export default function FormLogin() {
   }, [nextPage, userData]);
 
   return (
-    <form>
+    <S.Form>
 
-      <h1>Login</h1>
-      <label htmlFor="emailLogin">
-        Email:
-        <input
+      <S.H1>Login</S.H1>
+      <S.Label htmlFor="emailLogin">
+        <S.InputEmail
+          placeholder="Email"
           id="emailLogin"
           onChange={(e) => setEmail(e.target.value)}
         />
-      </label>
-      <label htmlFor="passwordLogin">
-        Senha:
-        <input
+      </S.Label>
+      <S.Label htmlFor="passwordLogin">
+        <S.InputPassword
+          placeholder="Senha"
           type="password"
           id="passwordLogin"
           onChange={(e) => setPassword(e.target.value)}
         />
-      </label>
+      </S.Label>
       <div>
-        <label htmlFor="rememberLogin">
-          <input
+        <S.Label htmlFor="rememberLogin">
+          <S.InputRememberPassword
             type="radio"
             id="rememberLogin"
             onClick={() => { setRemember(!remember); }}
             checked={remember}
             readOnly
           />
-          Lembrar minha senha
-        </label>
-        <button
+          Lembre minha senha
+        </S.Label>
+        <S.ForgetPassword
           type="button"
           onClick={() => { setRenderForgot(!renderForgotPassword); }}
         >
-          Esqueci minha senha
-        </button>
+          Esqueceu a senha?
+        </S.ForgetPassword>
       </div>
-      <button
+      <S.ButtonLogin
         type="button"
         id="submitLogin"
         onClick={async () => { setNext(validadeUser(email, password)); }}
       >
-        Entrar
+        Login
 
-      </button>
-      <footer>
-        <button
+      </S.ButtonLogin>
+      <S.FooterButton>
+        <S.ButtonCreateAccount
           type="button"
           onClick={() => { setCreate(!renderCreate); }}
         >
-          Criar conta
-        </button>
-      </footer>
-    </form>
+          Criar uma conta
+        </S.ButtonCreateAccount>
+      </S.FooterButton>
+    </S.Form>
   );
 }
