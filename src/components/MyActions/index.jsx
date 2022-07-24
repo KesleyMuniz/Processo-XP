@@ -1,13 +1,20 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import TableMyActions from '../TableMyActions';
 import { getLocalStorage } from '../../services';
+import Context from '../../context/Context';
+import NegotiateMyActions from '../NegotiateMyActions';
 
 export default function MyActions() {
+  const { openNegotiation } = useContext(Context);
   const myStocksLocalStorage = getLocalStorage('myStocks');
   return (
-    <div>
+    <span>
       <TableMyActions itens={myStocksLocalStorage} />
-    </div>
+      {openNegotiation && (
+        <div>
+          <NegotiateMyActions />
+        </div>
+      )}
+    </span>
   );
 }

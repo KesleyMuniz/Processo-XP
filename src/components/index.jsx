@@ -11,6 +11,7 @@ import UserBalance from './UserBalance';
 import ConfirmBuy from './ConfirmBuy';
 import MyActions from './MyActions';
 import AccountTransactions from './AccountTransactions';
+import NegotiateMyActions from './NegotiateMyActions';
 
 export {
   FormLogin,
@@ -26,4 +27,5 @@ export {
   ConfirmBuy,
   MyActions,
   AccountTransactions,
+  NegotiateMyActions,
 };
