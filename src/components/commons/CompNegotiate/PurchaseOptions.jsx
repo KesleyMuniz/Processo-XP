@@ -7,8 +7,9 @@ export default function PurchaseOptions({ calculatedOptions, setOptions }) {
       <div>
         Opções de compras
       </div>
-      <div>
+      <span>
         <label htmlFor="valueInputValue">
+          valor
           <input
             type="radio"
             id="valueInputValue"
@@ -17,20 +18,19 @@ export default function PurchaseOptions({ calculatedOptions, setOptions }) {
             readOnly
             onClick={() => setOptions(true)}
           />
-          valor
         </label>
-      </div>
-      <label htmlFor="valueInputVolume">
-        <input
-          type="radio"
-          id="valueInputVolume"
-          name="optionsMethod"
-          checked={!calculatedOptions}
-          readOnly
-          onClick={() => setOptions(false)}
-        />
-        volume
-      </label>
+        <label htmlFor="valueInputVolume">
+          <input
+            type="radio"
+            id="valueInputVolume"
+            name="optionsMethod"
+            checked={!calculatedOptions}
+            readOnly
+            onClick={() => setOptions(false)}
+          />
+          volume
+        </label>
+      </span>
     </>
   );
 }

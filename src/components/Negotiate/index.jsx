@@ -83,19 +83,25 @@ export default function Negotiate() {
     <S.Container>
       <S.BG>
         <S.Header>
-          <Com.ButtonClose />
+          <S.ContainerButtonClosed>
+            <Com.ButtonClose />
+          </S.ContainerButtonClosed>
         </S.Header>
         <div>
           {Stock ? (
             <>
-              <div>
+              <S.ContainerUserBalance>
                 <UserBalance />
+              </S.ContainerUserBalance>
+              <div>
                 <Com.AverageValue value={+Stock[0].vw} />
               </div>
-              <Com.PurchaseOptions
-                calculatedOptions={calculatedOptions}
-                setOptions={setOptions}
-              />
+              <S.ContainerPurchaseOptions>
+                <Com.PurchaseOptions
+                  calculatedOptions={calculatedOptions}
+                  setOptions={setOptions}
+                />
+              </S.ContainerPurchaseOptions>
               <Com.InputValue
                 buyVolumes={buyVolumes}
                 setBuy={setBuy}

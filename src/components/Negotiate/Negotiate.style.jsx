@@ -41,3 +41,41 @@ export const Header = styled.header`
     }
   }
 `;
+
+export const ContainerButtonClosed = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 189px;
+  z-index: 9999;
+`;
+
+export const ContainerUserBalance = styled.div`
+  position: absolute;
+  top: 161px;
+  right: 80px;
+  font-size: 40px;
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const ContainerPurchaseOptions = styled.div`
+    position: absolute;
+    top: 156px;
+    right: 362px;
+    font-size: 40px;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  input {
+    margin: 20px;
+
+  }
+`;

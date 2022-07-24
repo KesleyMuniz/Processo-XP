@@ -7,9 +7,9 @@ export const ContainerAverageValue = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 1px;
-  right: 1px;
-  font-size: 50px;
+  top: 156px;
+  right: 706px;
+  font-size: 40px;
 `;
 export const SpanAverageValue = styled.span`
   

@@ -75,17 +75,28 @@ export default function ConfirmSell({ sell }) {
 
   return (
     <S.BG>
-      {completedBuy && <div>Operação finalizada</div>}
       <S.Container>
-        <S.Div>Tem certeza de deseja fazer esse operação?</S.Div>
-        <S.ButtonContainer>
-          <S.Button type="button" onClick={() => { setMakeSale(true); }}>
-            Sim
-          </S.Button>
-          <S.Button type="button" onClick={() => { setSendSell(false); }}>
-            Não
-          </S.Button>
-        </S.ButtonContainer>
+        {completedBuy ? (<S.Div>Operação finalizada</S.Div>) : (
+          <>
+            <S.Div>Tem certeza de deseja fazer esse operação?</S.Div>
+            <S.ButtonContainer>
+              <S.ButtonYes
+                type="button"
+                className="green"
+                onClick={() => { setMakeSale(true); }}
+              >
+                Sim
+              </S.ButtonYes>
+              <S.ButtonNo
+                type="button"
+                className="red"
+                onClick={() => { setSendSell(false); }}
+              >
+                Não
+              </S.ButtonNo>
+            </S.ButtonContainer>
+          </>
+        )}
       </S.Container>
     </S.BG>
   );

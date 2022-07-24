@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/Context';
 import { getAPI, getLocalStorage, getSessionStorage } from '../../services';
 import ConfirmSell from '../ConfirmSell';
+import * as S from './UserBalanceStocks.style';
 
 export default function UserBalanceStocks() {
   const { purchaseData, setStatusDisable, sendSell } = useContext(Context);
@@ -38,9 +39,8 @@ export default function UserBalanceStocks() {
     setFinalData(objUser);
   }, [sendSell]);
   return (
-    <div>
-      <div>Saldo restante</div>
+    <S.ContainerUserBalance>
       {sendSell && <ConfirmSell sell={finalData} />}
-    </div>
+    </S.ContainerUserBalance>
   );
 }
