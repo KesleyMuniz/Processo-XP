@@ -7,7 +7,7 @@ export default function AvailableVolume({ value, calculatedValue, calculatedOpti
       <span>Volume disponível</span>
       {calculatedOptions ? (
 
-        <div>{(value) - Math.floor(calculatedValue)}</div>
+        <div>{((value) - (calculatedValue)).toFixed(0)}</div>
       ) : (
         <div>{(value) - calculatedValue}</div>
       )}
