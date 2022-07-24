@@ -26,7 +26,7 @@ export default function Stocks() {
         </S.Button>
       </S.ContainerButton>
       {selectStocksOptions ? (
-        <Comp.Account />
+        <Comp.MyActions />
       ) : (
         <Comp.AvailableActions />
       )}

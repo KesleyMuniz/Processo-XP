@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import * as S from './Account.Style';
 import Context from '../../context/Context';
 import carryOutTransactions from '../../services/transaction';
+import TableMyActions from '../TableMyActions';
+import { getLocalStorage } from '../../services';
 
 export default function Account() {
   const [typeOperation, setType] = useState(null);
@@ -11,6 +13,8 @@ export default function Account() {
   const [resetState, setReset] = useState(false);
   const [response, setResponse] = useState(null);
   const { completeTransaction, setCompleted } = useContext(Context);
+
+  const myStocksLocalStorage = getLocalStorage('myStocks');
 
   useEffect(() => {
     const resultTransactions = async () => {
@@ -116,6 +120,7 @@ export default function Account() {
         </div>
       </div>
       )}
+      <TableMyActions itens={myStocksLocalStorage} />
     </S.BG>
   );
 }
