@@ -5,7 +5,7 @@ import Context from '../../context/Context';
 
 export default function TableMyActions({ itens }) {
   const randomID = () => useId();
-  const { setOpen } = useContext(Context);
+  const { setOpen, setSelected } = useContext(Context);
   return (
     <S.Table>
       <S.Thead>
@@ -36,6 +36,7 @@ export default function TableMyActions({ itens }) {
                 type="button"
                 onClick={() => {
                   setOpen(true);
+                  setSelected(item);
                 }}
               >
                 Negociar
